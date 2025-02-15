@@ -1,0 +1,6 @@
+### Counterfactual memorization
+
+1. Construct 50/50 corpora for En-De, or a 90/10 corpus for the other language pairs using `python construct_corpora.py --prepare --src_file <filename> --trg_file <filename> --percentage <percentage> --srclang <srclang> --trglang <trglang>`, where percentage is 100 or 20, respectively.
+2. Train models on these 10 corpora using `bash train_cm_models.sh <langpair> <srclang> <trglang> <number>`, where `<number>` is 1 of 10, and the langpair refers to the `wmt20` corpus folder.
+3. Score the training corpus using your CM models, using `bash test_cm_models_scoring.sh <langpair> <srclang> <trglang> <number> <steps>`, where `<steps>` depends on the percentage used in step (1) (150k for En-De, 300k for the rest).
+4. Compute the approximations of CM scores using `python compute_cm.py --trg_file <wmt_targets_path> --models <list> --srclang <srclang> --trglang <trglang>` where models is a list of numbers, 1...10 for the 50/50 split for En-De, 0 1 for the other language pairs.
