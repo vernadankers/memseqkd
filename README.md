@@ -1,5 +1,11 @@
 # memseqkd
 
+Code for [Memorization Inheritance in Sequence-Level Knowledge Distillation for Neural Machine Translation](https://arxiv.org/abs/2502.01491).
+
+Accepted at [ACL'25 (Main Conference)](https://2025.aclweb.org/).
+
+> Abstract: In this work, we explore how instance-level memorization in the teacher Neural Machine Translation (NMT) model gets inherited by the student model in sequence-level knowledge distillation (SeqKD). We find that despite not directly seeing the original training data, students memorize more than baseline models (models of the same size, trained on the original data) -- 3.4% for exact matches and 57% for extractive memorization -- and show increased hallucination rates. Further, under this SeqKD setting, we also characterize how students behave on specific training data subgroups, such as subgroups with low quality and specific counterfactual memorization (CM) scores, and find that students exhibit amplified denoising on low-quality subgroups. Finally, we propose a modification to SeqKD named Adaptive-SeqKD, which intervenes in SeqKD to reduce memorization and hallucinations. Overall, we recommend caution when applying SeqKD: students inherit both their teachers' superior performance and their fault modes, thereby requiring active monitoring.
+
 #### Set up
 
 1. Set up the conda env using `./install.sh`
@@ -22,3 +28,18 @@
 - For the approximation of counterfactual memorization, consider the dedicated readme in `counterfactual_memorization`;
 - For the subgroup analysis and overall visualization functionalities, consider the dedicated readme in `analysis`.
 
+#### Citation
+
+If you find our code useful in your research, please cite our paper:
+```bibtex
+@inproceedings{dankers-etal-2025-mem,
+    title = "Memorization Inheritance in Sequence-Level Knowledge Distillation for Neural Machine Translation",
+    author = "Dankers, Verna and Raunak, Vikas,
+    booktitle = "Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics",
+    publisher = "Association for Computational Linguistics"
+}
+```
+
+##### Acknowledgement
+
+Our repo leverages components from [Finding-Memo](https://github.com/vyraun/Finding-Memo), [Marian-NMT](https://github.com/marian-nmt/marian), [COMET](https://github.com/Unbabel/COMET) and [Curious Case of Hallucinations](https://github.com/vyraun/hallucinations) projects. Thank you!
